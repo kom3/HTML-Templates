@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>File upload</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="./fileupload.css">
+    
+</head>
+<body>
+
+<div id="example1">
+        <div class="inner-box">
+            <h4 class="header"><b>Upload to Content Inspiration</B></h4>
+            <form class="form" action='/curated_upload' method="POST" enctype="multipart/form-data">
+                <br><br>
+                <div style="text-align:left">
+				 <label>Audience Distribution GUID</label>
+                    <input class="brdr_blue" name="audience_dist_id" type="text"><br><br>
+                  <label>Project GUID </label>
+               <input class="brdr_blue" name="project_id" type="text"> <br> <br>
+                    <label>Audience GUID</label>
+                    <input class="brdr_blue" name="audience_id" type="text"><br><br>
+                    <label>Country</label>
+                    <input class="brdr_blue" name="country" type="text"><br><br>
+                    <label>File</label>
+					<div style="display:flex">
+					 <input style="margin-right:18px;" class="brdr_blue" id="disp_file_name" type="text">
+					<button type="button" class="btn btn-primary btn-md cust_btn brdr_blue"  onclick="document.getElementById('file').click()">Browse</button>
+					<input  style="visibility:hidden" id="file" type="file" name="file_name">
+					</div>
+					<div class="status_text">File must be a CSV.</div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-md cust_btn brdr_blue">Upload</button>
+            </form>
+        </div>
+    </div>
+	
+	<script>
+	$("#file").change(function() {
+  filename = this.files[0].name
+ $("#disp_file_name").val(filename);
+});
+	</script>
+</body>
+</html>
